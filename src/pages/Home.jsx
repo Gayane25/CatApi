@@ -5,6 +5,7 @@ import {getDataAsync} from "../redux/getDataAsync"
 import CatPicture from '../components/CatPicture';
 import {ContainerStyled} from "../components/ContainerStyled";
 import {VOID_DATA} from "../redux/dataReducer"
+import Button from "../components/Button"
 function Home() {
 const dispatch =useDispatch();
 const [page, setPage] =useState(1)
@@ -13,8 +14,12 @@ console.log(data)
 useEffect(()=>{
     dispatch(getDataAsync(page))
 
-    return ()=> dispatch({type:VOID_DATA})
+      // dispatch({type:VOID_DATA})
 },[dispatch,page])
+// const handleChangePage=()=>{
+//   setPage(page=>page+1);
+//   dispatch(getDataAsync(page))
+// }
   return (
     <>
         <Header/>
@@ -23,7 +28,7 @@ useEffect(()=>{
           data.map(catImg=><CatPicture key ={catImg.id} catImg={catImg} />)  
         }
     </ContainerStyled>
-    <button onClick={()=>setPage(page+1)}>Show More</button>
+   <button onClick={()=>setPage(page+1)}>Show</button>
     </>
   )
 }

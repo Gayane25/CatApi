@@ -6,6 +6,7 @@ import { catwithId } from "../categorieswithId";
 import { ContainerStyled } from "../components/ContainerStyled";
 import CatPicture from "../components/CatPicture";
 import {VOID_DATA} from "../redux/dataReducer"
+import Button from "../components/Button"
 function Clothes() {
   const dispatch = useDispatch();
   const data=useSelector(state=>state.data)
@@ -13,7 +14,7 @@ function Clothes() {
   useEffect(() => {
     dispatch(getDatabyCategoriesAsync(page, catwithId.clothes));
 
-    return ()=>dispatch({type:VOID_DATA})
+    // return ()=>dispatch({type:VOID_DATA})
   }, [dispatch, page]);
   return (
     <>
@@ -21,6 +22,7 @@ function Clothes() {
       <ContainerStyled>
         {data.map(catImg=><CatPicture key ={catImg.id+ Math.random()} catImg={catImg}/>)}
       </ContainerStyled>
+      <Button setPage={setPage}page={page}/>
     </>
   );
 }

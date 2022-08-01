@@ -6,6 +6,7 @@ import {getDatabyCategoriesAsync} from "../redux/getDatabyCategoriesAsync";
 import {catwithId} from "../categorieswithId";
 import { ContainerStyled } from '../components/ContainerStyled';
 import CatPicture from '../components/CatPicture';
+import Button from "../components/Button"
 
 
 function Sinks() {
@@ -15,16 +16,17 @@ function Sinks() {
     
     useEffect(()=>{
         dispatch(getDatabyCategoriesAsync(page, catwithId.sinks))
-        return ()=>dispatch({type:VOID_DATA})
+        // return ()=>dispatch({type:VOID_DATA})
     },[dispatch, page])
 
   return (
-    <div>
+    <>
         <Header/>
         <ContainerStyled>
         {data.map(catImg=><CatPicture key={catImg.id+Math.random()} catImg={catImg}/>)}
         </ContainerStyled>
-    </div>
+        <Button setPage={setPage} page={page}/>
+    </>
   )
 }
 

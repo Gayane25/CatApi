@@ -6,13 +6,14 @@ import {catwithId} from "../categorieswithId";
 import {VOID_DATA} from "../redux/dataReducer"
 import { ContainerStyled } from '../components/ContainerStyled';
 import CatPicture from '../components/CatPicture';
+import Button from "../components/Button"
 function Space() {
     const dispatch = useDispatch();
     const [page,setPage] = useState(1);
     const data = useSelector(state=>state.data)
     useEffect(()=>{
         dispatch(getDatabyCategoriesAsync(page, catwithId.space))
-        return ()=>dispatch({type:VOID_DATA})
+        // return ()=>dispatch({type:VOID_DATA})
     },[page])
   return (
     <>
@@ -20,6 +21,7 @@ function Space() {
         <ContainerStyled>
           {data.map(catImg=><CatPicture catImg={catImg} key={catImg.id+Math.random()}/>)}
         </ContainerStyled>
+        <Button setPage={setPage} page={page}/>
     </>
   )
 }
