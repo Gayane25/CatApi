@@ -1,4 +1,4 @@
-import {Routes, Route} from "react-router-dom"
+import { Routes, Route } from "react-router-dom";
 import Boxes from "./pages/Boxes";
 import Clothes from "./pages/Clothes";
 import Hats from "./pages/Hats";
@@ -10,20 +10,16 @@ import Ties from "./pages/Ties";
 
 function App() {
   return (
-   
     <Routes>
-      <Route  path="/" element={<Home/>}/>
-      <Route  path="/boxes" element={<Boxes/>}/>
-      <Route  path="/clothes" element={<Clothes/>}/>
-      <Route  path="/hats" element={<Hats/>}/>
-      <Route  path = "/sinks" element={<Sinks/>}/>
-      <Route  path="/space" element={<Space/>}/>
-      <Route  path="/sunglasses" element={<Sunglasses/>}/>
-      <Route  path ="/ties" element={<Ties/>}/>
-      
+      <Route path="/" element={<Home />} />
+      <Route path="/boxes" element={<Boxes />} />
+      <Route path="/clothes" element={<Clothes />} />
+      <Route path="/hats" element={<Hats />} />
+      <Route path="/sinks" element={<Sinks />} />
+      <Route path="/space" element={<Space />} />
+      <Route path="/sunglasses" element={<Sunglasses />} />
+      <Route path="/ties" element={<Ties />} />
     </Routes>
-     
-   
   );
 }
 
