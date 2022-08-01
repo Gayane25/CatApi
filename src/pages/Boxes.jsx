@@ -5,7 +5,6 @@ import { getDatabyCategoriesAsync } from "../redux/getDatabyCategoriesAsync";
 import { catwithId } from "../categorieswithId";
 import { ContainerStyled } from "../components/ContainerStyled";
 import CatPicture from "../components/CatPicture";
-import { VOID_DATA } from "../redux/dataReducer";
 import Button from "../components/Button";
 function Boxes() {
   const dispatch = useDispatch();

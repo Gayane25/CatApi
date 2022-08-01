@@ -13,7 +13,7 @@ function Space() {
   const data = useSelector((state) => state.data);
   useEffect(() => {
     dispatch(getDatabyCategoriesAsync(page, catwithId.space));
-  }, [page]);
+  }, [dispatch, page]);
   return (
     <>
       <Header />

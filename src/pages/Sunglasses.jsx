@@ -12,7 +12,7 @@ function Sunglasses() {
   const data = useSelector((state) => state.data);
   useEffect(() => {
     dispatch(getDatabyCategoriesAsync(page, catwithId.sunglasses));
-  }, [page]);
+  }, [dispatch, page]);
   return (
     <>
       <Header />

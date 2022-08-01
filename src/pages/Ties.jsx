@@ -12,7 +12,7 @@ function Ties() {
   const data = useSelector((state) => state.data);
   useEffect(() => {
     dispatch(getDatabyCategoriesAsync(page, catwithId.ties));
-  }, [page]);
+  }, [dispatch, page]);
   return (
     <>
       <Header />

@@ -12,7 +12,7 @@ function Hats() {
   const data = useSelector((state) => state.data);
   useEffect(() => {
     dispatch(getDatabyCategoriesAsync(page, catwithId.hats));
-  }, [page]);
+  }, [dispatch, page]);
   return (
     <>
       <Header />
