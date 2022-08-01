@@ -1,9 +1,10 @@
-import React from 'react'
+import React from 'react';
+import {CatPictureStyled} from "./CatPictureStyled"
 
 export default function CatPicture({catImg}) {
   return (
-    <div>
+    <CatPictureStyled>
         <img src={catImg.url} alt ="cat_pic"/>
-    </div>
+    </CatPictureStyled>
   )
 }

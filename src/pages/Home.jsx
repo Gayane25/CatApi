@@ -1,27 +1,30 @@
-import React,{useEffect} from 'react'
+import React,{useEffect, useState} from 'react'
 import Header from '../components/Header';
 import { useSelector, useDispatch } from 'react-redux/es/exports';
-import { CHANGE_PAGE} from "../redux/pageReducer" ;
 import {getDataAsync} from "../redux/getDataAsync"
 import CatPicture from '../components/CatPicture';
+import {ContainerStyled} from "../components/ContainerStyled";
+import {VOID_DATA} from "../redux/dataReducer"
 function Home() {
 const dispatch =useDispatch();
-const page = useSelector(state=>state.page);
+const [page, setPage] =useState(1)
 const data = useSelector(state=>state.data);
 console.log(data)
 useEffect(()=>{
     dispatch(getDataAsync(page))
+
+    return ()=> dispatch({type:VOID_DATA})
 },[dispatch,page])
   return (
-    <div>
+    <>
         <Header/>
-    <div>
+    <ContainerStyled>
         {
           data.map(catImg=><CatPicture key ={catImg.id} catImg={catImg} />)  
         }
-    </div>
-    <button onClick={()=>dispatch({type:CHANGE_PAGE})}>Show More</button>
-    </div>
+    </ContainerStyled>
+    <button onClick={()=>setPage(page+1)}>Show More</button>
+    </>
   )
 }
 
